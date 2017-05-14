@@ -259,3 +259,7 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Library
+/Library/metadata/00/00000000000000001000000000000000
+/Temp
+/ProjectSettings
