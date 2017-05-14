@@ -10,40 +10,44 @@ public class CameraRaycaster : MonoBehaviour
     [SerializeField] float distanceToBackground = 100f;
     Camera viewCamera;
 
-    RaycastHit m_hit;
+    RaycastHit raycastHit;
     public RaycastHit hit
     {
-        get { return m_hit; }
+        get { return raycastHit; }
     }
 
-    Layer m_layerHit;
-    public Layer layerHit
+    Layer layerHit;
+    public Layer currentLayerHit
     {
-        get { return m_layerHit; }
+        get { return layerHit; }
     }
 
-    void Start() // TODO Awake?
-    {
-        viewCamera = Camera.main;
+    public delegate void OnLayerChange(); // declare new Delegate type 
+    public OnLayerChange layerChangeObserver; // instatiate an observer set
+    
+    void Start() {
+        viewCamera = Camera.main;            
     }
 
-    void Update()
-    {
+    void Update(){
         // Look for and return priority layer hit
         foreach (Layer layer in layerPriorities)
         {
             var hit = RaycastForLayer(layer);
             if (hit.HasValue)
             {
-                m_hit = hit.Value;
-                m_layerHit = layer;
+                raycastHit = hit.Value;
+                // if layer changed 
+                if (layerHit != layer){
+                    layerHit = layer;
+                    layerChangeObserver();
+                }                
                 return;
             }
         }
-
         // Otherwise return background hit
-        m_hit.distance = distanceToBackground;
-        m_layerHit = Layer.RaycastEndStop;
+        raycastHit.distance = distanceToBackground;
+        layerHit = Layer.RaycastEndStop;       
     }
 
     RaycastHit? RaycastForLayer(Layer layer)

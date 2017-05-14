@@ -8,13 +8,13 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     float walkStopRadius = 0.2f;
     
-    ThirdPersonCharacter m_Character;   // A reference to the ThirdPersonCharacter on the object
+    ThirdPersonCharacter thirdPersonCharacter;   // A reference to the ThirdPersonCharacter on the object
     CameraRaycaster cameraRaycaster;
     Vector3 currentClickTarget;
         
     private void Start() {
         cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>(); 
-        m_Character = GetComponent<ThirdPersonCharacter>();
+        thirdPersonCharacter = GetComponent<ThirdPersonCharacter>();
         currentClickTarget = transform.position;
     }
 
@@ -29,9 +29,9 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (Input.GetMouseButton(0))
         {
-            print("Cursor raycast hit layer: " + cameraRaycaster.layerHit);
+            print("Cursor raycast hit layer: " + cameraRaycaster.currentLayerHit);
 
-            switch (cameraRaycaster.layerHit)
+            switch (cameraRaycaster.currentLayerHit)
             {
                 case Layer.Walkable:
                     currentClickTarget = cameraRaycaster.hit.point;
@@ -48,11 +48,11 @@ public class PlayerMovement : MonoBehaviour {
         var playerToClickPoint = currentClickTarget - transform.position;
         if (playerToClickPoint.magnitude >= walkStopRadius)
         {
-            m_Character.Move(playerToClickPoint, false, false);
+            thirdPersonCharacter.Move(playerToClickPoint, false, false);
         }
         else
         {
-            m_Character.Move(Vector3.zero, false, false);
+            thirdPersonCharacter.Move(Vector3.zero, false, false);
         }
     }
 }
