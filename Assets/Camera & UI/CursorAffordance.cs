@@ -21,12 +21,13 @@ public class CursorAffordance : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         cameraRaycaster = GetComponent<CameraRaycaster>();
-        cameraRaycaster.layerChangeObserver += OnLayerChange;
+        cameraRaycaster.onLayerChange += OnLayerChanged;
 	}
 	
 	// Change cursor, observer pattern
-	void OnLayerChange() {
-        switch (cameraRaycaster.currentLayerHit)
+	void OnLayerChanged(Layer newLayer) {
+        print("Use delegate");
+        switch (newLayer)
         {
             case Layer.Walkable:
                 Cursor.SetCursor(walkCursor, cursorHotspot, CursorMode.Auto);
@@ -41,7 +42,7 @@ public class CursorAffordance : MonoBehaviour {
                 Cursor.SetCursor(unusedCursor, cursorHotspot, CursorMode.Auto);
                 Debug.LogError("Unexpeted Layer!");
                 return;
-        }            
+        }           
        
     }
 }
