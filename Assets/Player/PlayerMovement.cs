@@ -19,13 +19,22 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Fixed update is called in sync with physics
-    private void FixedUpdate() {
-        if (Input.GetMouseButton(0)) {
+    private void FixedUpdate()
+    {
+        ProcessMouseMovement();// Mouse movement
+
+    }
+
+    private void ProcessMouseMovement()
+    {
+        if (Input.GetMouseButton(0))
+        {
             print("Cursor raycast hit layer: " + cameraRaycaster.layerHit);
-         
-            switch (cameraRaycaster.layerHit) {
+
+            switch (cameraRaycaster.layerHit)
+            {
                 case Layer.Walkable:
-                    currentClickTarget = cameraRaycaster.hit.point;                    
+                    currentClickTarget = cameraRaycaster.hit.point;
                     break;
                 case Layer.Enemy:
                     print("NOT moving to enemy!");
@@ -37,13 +46,14 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         var playerToClickPoint = currentClickTarget - transform.position;
-        if(playerToClickPoint.magnitude >= walkStopRadius) {
-          m_Character.Move(playerToClickPoint, false, false);
+        if (playerToClickPoint.magnitude >= walkStopRadius)
+        {
+            m_Character.Move(playerToClickPoint, false, false);
         }
-        else {
+        else
+        {
             m_Character.Move(Vector3.zero, false, false);
-        }            
-
+        }
     }
 }
 
