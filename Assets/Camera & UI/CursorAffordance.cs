@@ -15,29 +15,33 @@ public class CursorAffordance : MonoBehaviour {
     Texture2D endWalkCursor = null;
     [SerializeField]
     Texture2D unusedCursor = null;
+    [SerializeField]
+    const int walkableLayerNumber = 8;
+    [SerializeField]
+    const int enemyLayerNumber = 9;
+
+    [SerializeField]
+    int walkable;
 
     private CameraRaycaster cameraRaycaster;
 
 	// Use this for initialization
 	void Start () {
         cameraRaycaster = GetComponent<CameraRaycaster>();
-        cameraRaycaster.onLayerChange += OnLayerChanged;
+        cameraRaycaster.notifyLayerChangeObservers += OnLayerChanged;
 	}
 	
 	// Change cursor, observer pattern
-	void OnLayerChanged(Layer newLayer) {
+	void OnLayerChanged(int newLayer) {
         print("Use delegate");
         switch (newLayer)
         {
-            case Layer.Walkable:
+            case walkableLayerNumber:
                 Cursor.SetCursor(walkCursor, cursorHotspot, CursorMode.Auto);
                 break;
-            case Layer.Enemy:
+            case enemyLayerNumber:
                 Cursor.SetCursor(attackCursor, cursorHotspot, CursorMode.Auto);
-                break;
-            case Layer.RaycastEndStop:
-                Cursor.SetCursor(endWalkCursor, cursorHotspot, CursorMode.Auto);
-                break;
+                break;            
             default:
                 Cursor.SetCursor(unusedCursor, cursorHotspot, CursorMode.Auto);
                 Debug.LogError("Unexpeted Layer!");

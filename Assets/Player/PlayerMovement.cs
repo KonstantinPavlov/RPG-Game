@@ -24,32 +24,32 @@ public class PlayerMovement : MonoBehaviour {
     // Fixed update is called in sync with physics
     private void FixedUpdate()
     {
-        ProcessMouseMovement();// Mouse movement
+       // ProcessMouseMovement();// Mouse movement
 
     }
 
-    private void ProcessMouseMovement()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            print("Cursor raycast hit layer: " + cameraRaycaster.currentLayerHit);
+    //private void ProcessMouseMovement()
+    //{
+    //    if (Input.GetMouseButton(0))
+    //    {
+    //        print("Cursor raycast hit layer: " + cameraRaycaster.currentLayerHit);
 
-            clickPoint = cameraRaycaster.hit.point;
-            switch (cameraRaycaster.currentLayerHit)
-            {
-                case Layer.Walkable:
-                    currentDestination = ShortDestination(clickPoint, walkStopRadius);
-                    break;
-                case Layer.Enemy:
-                    currentDestination = ShortDestination(clickPoint, attackStopRadius);
-                    break;
-                default:
-                    print("Unexpected layer found!");
-                    return;
-            }
-        }
-        WalkToDestination();
-    }
+    //        clickPoint = cameraRaycaster.hit.point;
+    //        switch (cameraRaycaster.currentLayerHit)
+    //        {
+    //            case Layer.Walkable:
+    //                currentDestination = ShortDestination(clickPoint, walkStopRadius);
+    //                break;
+    //            case Layer.Enemy:
+    //                currentDestination = ShortDestination(clickPoint, attackStopRadius);
+    //                break;
+    //            default:
+    //                print("Unexpected layer found!");
+    //                return;
+    //        }
+    //    }
+    //    WalkToDestination();
+    //}
 
     private void WalkToDestination()
     {
