@@ -43,8 +43,7 @@ public class CursorAffordance : MonoBehaviour {
                 Cursor.SetCursor(attackCursor, cursorHotspot, CursorMode.Auto);
                 break;            
             default:
-                Cursor.SetCursor(unusedCursor, cursorHotspot, CursorMode.Auto);
-                Debug.LogError("Unexpeted Layer!");
+                Cursor.SetCursor(unusedCursor, cursorHotspot, CursorMode.Auto);               
                 return;
         }           
        
