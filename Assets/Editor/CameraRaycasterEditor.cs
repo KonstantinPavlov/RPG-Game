@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 
 
 // TODO consider changing to a property drawer
@@ -17,13 +18,14 @@ public class CameraRaycasterEditor : Editor
             EditorGUI.indentLevel++;
             {
                 BindArraySize();
-                BindArrayElements();
+                BindArrayElements();                
             }
             EditorGUI.indentLevel--;
         }
 
         serializedObject.ApplyModifiedProperties(); // De-serialize back to cameraRaycaster (and create undo point)
     }
+      
 
     void BindArraySize()
     {

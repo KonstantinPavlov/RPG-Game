@@ -15,6 +15,8 @@ public class CursorAffordance : MonoBehaviour {
     Texture2D endWalkCursor = null;
     [SerializeField]
     Texture2D unusedCursor = null;
+
+    // TODO solve Serialized or const fields
     [SerializeField]
     const int walkableLayerNumber = 8;
     [SerializeField]
