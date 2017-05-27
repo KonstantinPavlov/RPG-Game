@@ -68,7 +68,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				HandleAirborneMovement();
 			}
 
-			ScaleCapsuleForCrouching(crouch);
+			//ScaleCapsuleForCrouching(crouch);
 			PreventStandingInLowHeadroom();
 
 			// send input and other state parameters to the animator
@@ -91,7 +91,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
 				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
 				{
-					m_Crouching = true;
+					m_Crouching = false;
 					return;
 				}
 				m_Capsule.height = m_CapsuleHeight;
@@ -109,7 +109,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
 				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
 				{
-					m_Crouching = true;
+					m_Crouching = false;
 				}
 			}
 		}
