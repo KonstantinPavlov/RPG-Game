@@ -45,7 +45,7 @@ public class CursorAffordance : MonoBehaviour {
                 Cursor.SetCursor(attackCursor, cursorHotspot, CursorMode.Auto);
                 break;            
             default:
-                Cursor.SetCursor(unusedCursor, cursorHotspot, CursorMode.Auto);               
+                Cursor.SetCursor(endWalkCursor, cursorHotspot, CursorMode.Auto);               
                 return;
         }           
        
