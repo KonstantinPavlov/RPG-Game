@@ -7625,6 +7625,10 @@ Prefab:
       propertyPath: m_AABB.m_Extent.z
       value: 0.45455474
       objectReference: {fileID: 0}
+    - target: {fileID: 1547689032737830, guid: 5dc7fb22e7a445741a75aa3d68a5c7d6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5dc7fb22e7a445741a75aa3d68a5c7d6, type: 2}
   m_IsPrefabParent: 0
