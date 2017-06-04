@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Bark_tiled1
-  m_Shader: {fileID: 2, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 14000, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -21,12 +21,20 @@ Material:
         m_Texture: {fileID: 2800000, guid: 67810bc223f1e664d903520483f65405, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 5885602950157e1479d83da3bcf01c12, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Cull: 2
+    - _Cutoff: 0.333
     - _Shininess: 0.27706474
+    - _WindQuality: 0
     m_Colors:
     - _Color: {r: 0.92537314, g: 0.91726005, b: 0.9046558, a: 1}
+    - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _SpecColor: {r: 0.35074627, g: 0.3559813, b: 0.3559813, a: 1}
