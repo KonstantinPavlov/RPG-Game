@@ -12,6 +12,7 @@ public class Player : MonoBehaviour, IDamageable{
     [SerializeField] float meleeDamage = 10f;
     [SerializeField] float minTimeBetweenHit = 1f;
     [SerializeField] float maxMeleeAttackRange = 1.5f;
+    [SerializeField] Weapon weaponInUse;
 
     GameObject currentTarget;
     CameraRaycaster cameraRaycaster;
@@ -22,11 +23,20 @@ public class Player : MonoBehaviour, IDamageable{
             return currentHealthPoints / maxHealthPoints;
         }
     }
-    public void Start()
-    {
+    public void Start() {
+        RegisterForMouseClick();
+        lastHitTime = Time.time;
+        PutWeaponInHand();
+    }
+
+    private void PutWeaponInHand() {
+        GameObject weaponPrefab = weaponInUse.GetWeaponPrefab();
+        var weapon = Instantiate(weaponPrefab,transform.position,Quaternion.identity);
+    }
+
+    private void RegisterForMouseClick() {
         cameraRaycaster = FindObjectOfType<CameraRaycaster>();
         cameraRaycaster.notifyMouseClickObservers += OnMouseClick;
-        lastHitTime = Time.time;
     }
 
     private void OnMouseClick(RaycastHit raycastHit, int layerHit) {
