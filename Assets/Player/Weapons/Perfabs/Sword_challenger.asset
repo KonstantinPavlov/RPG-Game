@@ -9,9 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 937df164ceba3044caa662a66fa11ef8, type: 3}
-  m_Name: Sword_02
+  m_Name: Sword_challenger
   m_EditorClassIdentifier: 
   gripTransform: {fileID: 4561443170970254, guid: 8ef9c1270cad4dc42b534fda0592858c,
     type: 2}
-  weaponPrefab: {fileID: 100000, guid: 16e32a35adb80834e9391fb4bfe5d30e, type: 2}
+  weaponPrefab: {fileID: 1691491003577808, guid: 2184d421a8b51c44a88a5c9f47e8d8cf,
+    type: 2}
   attackAnimation: {fileID: 0}

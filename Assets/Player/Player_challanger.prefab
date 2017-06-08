@@ -5179,6 +5179,8 @@ MonoBehaviour:
   meleeDamage: 10
   minTimeBetweenHit: 0.5
   maxMeleeAttackRange: 1.5
+  weaponInUse: {fileID: 11400000, guid: 70d2f3e654ae5d04f810dd8c26ff4e8f, type: 2}
+  weaponSocket: {fileID: 1566393664545904}
 --- !u!136 &136457384983984032
 CapsuleCollider:
   m_ObjectHideFlags: 1

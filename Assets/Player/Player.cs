@@ -13,6 +13,7 @@ public class Player : MonoBehaviour, IDamageable{
     [SerializeField] float minTimeBetweenHit = 1f;
     [SerializeField] float maxMeleeAttackRange = 1.5f;
     [SerializeField] Weapon weaponInUse;
+    [SerializeField] GameObject weaponSocket;
 
     GameObject currentTarget;
     CameraRaycaster cameraRaycaster;
@@ -31,7 +32,9 @@ public class Player : MonoBehaviour, IDamageable{
 
     private void PutWeaponInHand() {
         GameObject weaponPrefab = weaponInUse.GetWeaponPrefab();
-        var weapon = Instantiate(weaponPrefab,transform.position,Quaternion.identity);
+        var weapon = Instantiate(weaponPrefab,weaponSocket.transform);
+        weapon.transform.localPosition = weaponInUse.gripTransform.localPosition;
+        weapon.transform.localRotation = weaponInUse.gripTransform.localRotation;
     }
 
     private void RegisterForMouseClick() {

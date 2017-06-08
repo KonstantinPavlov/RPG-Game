@@ -11,5 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 937df164ceba3044caa662a66fa11ef8, type: 3}
   m_Name: Sword_01
   m_EditorClassIdentifier: 
+  gripTransform: {fileID: 4561443170970254, guid: 8ef9c1270cad4dc42b534fda0592858c,
+    type: 2}
   weaponPrefab: {fileID: 100000, guid: fa8c0bbedbd3c5940807e37181991f3c, type: 2}
   attackAnimation: {fileID: 0}
