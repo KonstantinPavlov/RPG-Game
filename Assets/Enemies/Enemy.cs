@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour, IDamageable {
 
         if(distanceToPlayer <= attackRadius && !isAttacking) {
             isAttacking = true;           
-            InvokeRepeating("SpawnProjectile", 0f, secondsBetweenShots);            
+            InvokeRepeating("FireProjectile", 0f, secondsBetweenShots);            
         }
         if (distanceToPlayer >= attackRadius)
         {
@@ -67,15 +67,23 @@ public class Enemy : MonoBehaviour, IDamageable {
         }
     }
 
-    void SpawnProjectile()
-    {        
-        GameObject projectile = Instantiate(projectileToUse, projectileSpawnPoint.transform.position,Quaternion.identity,transform);
-        projectile.GetComponent<Projectile>().DamageCaused = damagePerShot;
-        var projectileSpeed =projectile.GetComponent<Projectile>().projectileSpeed;
+    void FireProjectile()
+    {
+        GameObject projectile = SpawnProjectile();
+
+        var projectileSpeed = projectile.GetComponent<Projectile>().GetDefaultLaunchSpeed();
         Vector3 unitVector = (player.transform.position + aimOffset - projectileSpawnPoint.transform.position).normalized;
         projectile.GetComponent<Rigidbody>().velocity = unitVector * projectileSpeed;
     }
 
+    private GameObject SpawnProjectile()
+    {
+        GameObject projectile = Instantiate(projectileToUse, projectileSpawnPoint.transform.position, Quaternion.identity, transform);
+        Projectile projectileComponent = projectile.GetComponent<Projectile>();
+        projectileComponent.DamageCaused = damagePerShot;
+        projectileComponent.SetShooter(gameObject);
+        return projectile;
+    }
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;

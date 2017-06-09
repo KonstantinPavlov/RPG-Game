@@ -5,8 +5,10 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
 
    
-    public float projectileSpeed;
+    [SerializeField] float projectileSpeed;
+    [SerializeField] GameObject shooter; // For testing purporses
 
+    const float DESTROY_DELAY = 0.01f;
     float damageCaused = 8f;
 
     public float DamageCaused
@@ -22,11 +24,29 @@ public class Projectile : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public float GetDefaultLaunchSpeed()
     {
-        Component damagableComponent=other.gameObject.GetComponent(typeof(IDamageable));
-        if (damagableComponent) {
+        return projectileSpeed;
+    }
+    public void SetShooter(GameObject shooter)
+    {
+        this.shooter = shooter;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!collision.gameObject.layer.Equals(shooter.layer))
+        {
+            DealDamage(collision);
+        }
+    }
+    private void DealDamage(Collision collision)
+    {
+        Component damagableComponent = collision.gameObject.GetComponent(typeof(IDamageable));
+        if (damagableComponent)
+        {
             (damagableComponent as IDamageable).TakeDamage(damageCaused);
         }
+        Destroy(gameObject, DESTROY_DELAY);
     }
 }

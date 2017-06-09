@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Player : MonoBehaviour, IDamageable{
 
@@ -12,10 +13,9 @@ public class Player : MonoBehaviour, IDamageable{
     [SerializeField] float meleeDamage = 10f;
     [SerializeField] float minTimeBetweenHit = 1f;
     [SerializeField] float maxMeleeAttackRange = 1.5f;
-    [SerializeField] Weapon weaponInUse;
-    [SerializeField] GameObject weaponSocket;
 
-    GameObject currentTarget;
+    [SerializeField] Weapon weaponInUse;
+  
     CameraRaycaster cameraRaycaster;
     float lastHitTime;
 
@@ -32,9 +32,19 @@ public class Player : MonoBehaviour, IDamageable{
 
     private void PutWeaponInHand() {
         GameObject weaponPrefab = weaponInUse.GetWeaponPrefab();
-        var weapon = Instantiate(weaponPrefab,weaponSocket.transform);
+        GameObject dominantHand = RequestDominantHand();
+        var weapon = Instantiate(weaponPrefab,dominantHand.transform);
         weapon.transform.localPosition = weaponInUse.gripTransform.localPosition;
         weapon.transform.localRotation = weaponInUse.gripTransform.localRotation;
+    }
+
+    private GameObject RequestDominantHand()
+    {
+        var dominantHands = GetComponentsInChildren<DominantHand>();
+        int number = dominantHands.Length;
+        Assert.AreNotEqual(number, 0, "No DominantHand found on player, add it!");
+        Assert.IsFalse(number >1,"Multiply DominantHand's found on player, remove it!");
+        return dominantHands[0].gameObject;
     }
 
     private void RegisterForMouseClick() {
@@ -45,12 +55,13 @@ public class Player : MonoBehaviour, IDamageable{
     private void OnMouseClick(RaycastHit raycastHit, int layerHit) {
 
         if (layerHit.Equals(enemyLayer)){
-            currentTarget = raycastHit.collider.gameObject;            
-            float distanceToTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
+            var enemy = raycastHit.collider.gameObject;         
+
+            float distanceToTarget = Vector3.Distance(enemy.transform.position, transform.position);
 
             if (distanceToTarget <= maxMeleeAttackRange) {
 
-                var enemyComponent = currentTarget.GetComponent<Enemy>();
+                var enemyComponent = enemy.GetComponent<Enemy>();
                 if (Time.time -lastHitTime > minTimeBetweenHit) {
                     enemyComponent.TakeDamage(meleeDamage);
                     lastHitTime = Time.time;
