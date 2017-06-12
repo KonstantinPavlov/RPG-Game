@@ -38,7 +38,7 @@ namespace RPG.Weapons
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (!collision.gameObject.layer.Equals(shooter.layer))
+            if (collision.gameObject.layer != shooter.layer)
             {
                 DealDamage(collision);
             }

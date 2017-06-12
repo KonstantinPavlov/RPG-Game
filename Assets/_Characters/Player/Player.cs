@@ -22,6 +22,7 @@ namespace RPG.Characters
         [SerializeField] float maxMeleeAttackRange = 1.5f;
 
         [SerializeField] Weapon weaponInUse;
+        [SerializeField] AnimatorOverrideController animatorOverrideController;
 
         CameraRaycaster cameraRaycaster;
         float lastHitTime;
@@ -38,6 +39,14 @@ namespace RPG.Characters
             RegisterForMouseClick();
             lastHitTime = Time.time;
             PutWeaponInHand();
+            OverrideAnimatorController();
+        }
+
+        private void OverrideAnimatorController()
+        {
+            Animator animator = GetComponent<Animator>();
+            animator.runtimeAnimatorController = animatorOverrideController;
+            animatorOverrideController["DEFAULT_ATTACK"] = weaponInUse.GetWeaponAnimationClip();
         }
 
         private void PutWeaponInHand()
