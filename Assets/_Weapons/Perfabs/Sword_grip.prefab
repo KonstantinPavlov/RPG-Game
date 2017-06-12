@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4561443170970254}
   m_Layer: 0
-  m_Name: Sword_grip_challenger
+  m_Name: Sword_grip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,10 +32,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1708728799828244}
-  m_LocalRotation: {x: 0.12495869, y: -0.0000003576276, z: -0.00000037252877, w: 0.992162}
-  m_LocalPosition: {x: 0.02, y: 0.099, z: -0.354}
+  m_LocalRotation: {x: -0.6350527, y: 0.2464254, z: -0.19103263, w: 0.70674545}
+  m_LocalPosition: {x: 0.031, y: 0.006, z: 0.001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 170.00002}
+  m_LocalEulerAnglesHint: {x: -53.465004, y: 83.05701, z: -78.329}

@@ -7287,12 +7287,6 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 0.7362273
       objectReference: {fileID: 0}
-    - target: {fileID: 114885164597874982, guid: 5dc7fb22e7a445741a75aa3d68a5c7d6,
-        type: 2}
-      propertyPath: weaponInUse
-      value: 
-      objectReference: {fileID: 11400000, guid: 7c737b62059716546bf8b148bf85e969,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5dc7fb22e7a445741a75aa3d68a5c7d6, type: 2}
   m_IsPrefabParent: 0
@@ -16342,7 +16336,7 @@ TerrainCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1553927816}
-  m_Material: {fileID: 13400000, guid: e52fb17f9b1e7fd48b8955f1391d3688, type: 2}
+  m_Material: {fileID: 13400000, guid: 52baaeb214519f347a35cf0edfd262ff, type: 2}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: b8905891c9e5ef847a094331db1ef6ea, type: 2}
   m_EnableTreeColliders: 1
@@ -21605,22 +21599,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 55321c57b40885b4fa02cd582bf698bd, type: 2}
   m_PrefabInternal: {fileID: 1613908838}
---- !u!1 &1964853296 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1566393664545904, guid: 5dc7fb22e7a445741a75aa3d68a5c7d6,
-    type: 2}
-  m_PrefabInternal: {fileID: 722364102}
---- !u!114 &1964853298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1964853296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ce16737edd4d8e4aa3a5c66b6f77c98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1968197805
 Prefab:
   m_ObjectHideFlags: 0

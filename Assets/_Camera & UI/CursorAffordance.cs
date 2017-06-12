@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CameraRaycaster))]
-public class CursorAffordance : MonoBehaviour {
+namespace RPG.CameraUI
+{ 
+    [RequireComponent(typeof(CameraRaycaster))]
+    public class CursorAffordance : MonoBehaviour {
     
     [SerializeField]
     Vector2 cursorHotspot = new Vector2(0,0);
@@ -50,4 +52,5 @@ public class CursorAffordance : MonoBehaviour {
         }           
        
     }
+}
 }
