@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 937df164ceba3044caa662a66fa11ef8, type: 3}
+  m_Name: Sword_challenger
+  m_EditorClassIdentifier: 
+  gripTransform: {fileID: 4561443170970254, guid: d51514215be7d78408c0cea83e1b2ca3,
+    type: 2}
+  weaponPrefab: {fileID: 1691491003577808, guid: 2184d421a8b51c44a88a5c9f47e8d8cf,
+    type: 2}
+  attackAnimation: {fileID: 7400000, guid: 08449038be4e1b64a8989ff16a6f9760, type: 3}

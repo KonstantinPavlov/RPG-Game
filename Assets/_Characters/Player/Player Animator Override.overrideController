@@ -5,6 +5,8 @@ AnimatorOverrideController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: New Animator Override Controller
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Name: Player Animator Override
+  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: fc805d79a643c434ca0176bb4a7f3dc1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 08449038be4e1b64a8989ff16a6f9760, type: 3}

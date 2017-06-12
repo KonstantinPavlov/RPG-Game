@@ -4111,7 +4111,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1502476411032958}
-  m_LocalRotation: {x: 0.2940248, y: -0.071910895, z: -0.6052666, w: 0.7362273}
+  m_LocalRotation: {x: 0.29402483, y: -0.0719109, z: -0.60526663, w: 0.73622733}
   m_LocalPosition: {x: -0.07850078, y: -0.04194757, z: -0.018961621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5192,6 +5192,8 @@ MonoBehaviour:
   minTimeBetweenHit: 0.5
   maxMeleeAttackRange: 1.5
   weaponInUse: {fileID: 11400000, guid: f1b4ec6425147e84296c4d874db0c33c, type: 2}
+  animatorOverrideController: {fileID: 22100000, guid: b9589c3a8536b124fba1b7ba8e2f4c4c,
+    type: 2}
 --- !u!136 &136457384983984032
 CapsuleCollider:
   m_ObjectHideFlags: 1

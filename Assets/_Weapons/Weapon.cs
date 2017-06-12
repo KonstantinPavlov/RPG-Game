@@ -19,7 +19,13 @@ namespace RPG.Weapons
 
         public AnimationClip GetWeaponAnimationClip()
         {
+            ClearAnimationEvents();
             return attackAnimation;
+        }
+        // Clearing animation event list, if we importing some pack
+        private void ClearAnimationEvents()
+        {             
+            attackAnimation.events = new AnimationEvent[0];
         }
     }
 }
