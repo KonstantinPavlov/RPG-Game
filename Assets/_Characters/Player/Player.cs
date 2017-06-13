@@ -17,15 +17,14 @@ namespace RPG.Characters
         [SerializeField] float currentHealthPoints = 100f;
         [SerializeField] float maxHealthPoints = 100f;
 
-        [SerializeField] float meleeDamage = 10f;
-        [SerializeField] float minTimeBetweenHit = 1f;
-        [SerializeField] float maxMeleeAttackRange = 1.5f;
+        [SerializeField] float meleeDamage = 10f;       
 
         [SerializeField] Weapon weaponInUse;
         [SerializeField] AnimatorOverrideController animatorOverrideController;
 
         CameraRaycaster cameraRaycaster;
         float lastHitTime;
+        private Animator animator;
 
         public float healthAsPercentage
         {
@@ -36,15 +35,16 @@ namespace RPG.Characters
         }
         public void Start()
         {
+            
             RegisterForMouseClick();
             lastHitTime = Time.time;
             PutWeaponInHand();
-            OverrideAnimatorController();
+            SetUpRuntimeAnimator();
         }
 
-        private void OverrideAnimatorController()
+        private void SetUpRuntimeAnimator()
         {
-            Animator animator = GetComponent<Animator>();
+            animator = GetComponent<Animator>();
             animator.runtimeAnimatorController = animatorOverrideController;
             animatorOverrideController["DEFAULT_ATTACK"] = weaponInUse.GetWeaponAnimationClip();
         }
@@ -78,21 +78,32 @@ namespace RPG.Characters
 
             if (layerHit.Equals(enemyLayer))
             {
-                var enemy = raycastHit.collider.gameObject;
+                var enemy = raycastHit.collider.gameObject;                
 
-                float distanceToTarget = Vector3.Distance(enemy.transform.position, transform.position);
-
-                if (distanceToTarget <= maxMeleeAttackRange)
+                if (IsTargetInRange(enemy))
                 {
-
-                    var enemyComponent = enemy.GetComponent<Enemy>();
-                    if (Time.time - lastHitTime > minTimeBetweenHit)
-                    {
-                        enemyComponent.TakeDamage(meleeDamage);
-                        lastHitTime = Time.time;
-                    }
-                }
+                    AttackTarget(enemy);
+                }                         
+                
             }
+        }
+
+        private void AttackTarget(GameObject target)
+        {
+            var enemyComponent = target.GetComponent<Enemy>();
+            if (Time.time - lastHitTime > weaponInUse.MinTimeBetweenHit)
+            {
+                animator.SetTrigger("Attack");
+                enemyComponent.TakeDamage(meleeDamage);
+                lastHitTime = Time.time;
+            }
+
+        }
+
+        private bool IsTargetInRange(GameObject target)
+        {
+            float distanceToTraget = (target.transform.position - transform.position).magnitude;
+            return distanceToTraget <= weaponInUse.MaxMeleeAttackRange;
         }
 
         public void TakeDamage(float damage)

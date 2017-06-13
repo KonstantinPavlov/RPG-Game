@@ -1536,7 +1536,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1130619664143100}
-  m_LocalRotation: {x: 0.53267515, y: 0.07034045, z: 0.83613265, w: -0.11041513}
+  m_LocalRotation: {x: 0.5326752, y: 0.070340455, z: 0.83613276, w: -0.110415146}
   m_LocalPosition: {x: 0.000022271464, y: -0.00006150465, z: 0.026027026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1676,7 +1676,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1537715032687136}
   m_LocalRotation: {x: -0, y: 0.94058746, z: -0, w: 0.33955166}
-  m_LocalPosition: {x: 27.74, y: -8.290962, z: -51.41}
+  m_LocalPosition: {x: 25.35, y: -8.290962, z: -52.34}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4450846244235874}
@@ -2557,8 +2557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c511a1818ffe1f47b3dfe04632346f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealthPoints: 15
-  maxHealthPoints: 15
+  currentHealthPoints: 10
+  maxHealthPoints: 10
   attackRadius: 2
   moveRadius: 5
   damagePerShot: 2

@@ -11,6 +11,34 @@ namespace RPG.Weapons
         public Transform gripTransform;
         [SerializeField] GameObject weaponPrefab;
         [SerializeField] AnimationClip attackAnimation;
+        [SerializeField] float minTimeBetweenHit = 1f;
+        [SerializeField] float maxMeleeAttackRange = 1.5f;
+
+        public float MinTimeBetweenHit
+        {
+            get
+            {
+                return minTimeBetweenHit;
+            }
+
+            set
+            {
+                minTimeBetweenHit = value;
+            }
+        }
+
+        public float MaxMeleeAttackRange
+        {
+            get
+            {
+                return maxMeleeAttackRange;
+            }
+
+            set
+            {
+                maxMeleeAttackRange = value;
+            }
+        }
 
         public GameObject GetWeaponPrefab()
         {
