@@ -16,3 +16,5 @@ MonoBehaviour:
   weaponPrefab: {fileID: 1691491003577808, guid: 2184d421a8b51c44a88a5c9f47e8d8cf,
     type: 2}
   attackAnimation: {fileID: 7400000, guid: 08449038be4e1b64a8989ff16a6f9760, type: 3}
+  minTimeBetweenHit: 2
+  maxMeleeAttackRange: 1.5
